@@ -4,84 +4,175 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
-<style>
-    *{
-        padding: 0%;
-    }
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 20px;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                      url('https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcSYDpge1TVO3qsRgMrPXaoczl_9LGT4AUoty4L26CFfAHeQRDJI30iKYtx6qHbpcHQMukPpc9M5kKcAPAc');
-                       background-position: center;
-       background-repeat: no-repeat;
-       background-size:cover;
-       background-attachment:fixed;
-       color: white;
-}
-    h1 {
-        text-align: center;
-        color: #f7f7f7;
-        font-family: 'Black Ops One', cursive;
-        font-weight: bolder;
-        font-size: 50px;
-        text-decoration: underline;
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <style>
+        * {
+            padding: 0%;
+            margin: 0;
+            box-sizing: border-box; 
+        }
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                              url('https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcSYDpge1TVO3qsRgMrPXaoczl_9LGT4AUoty4L26CFfAHeQRDJI30iKYtx6qHbpcHQMukPpc9M5kKcAPAc');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+        }
+        h1 {
+            text-align: center;
+            color: #f7f7f7;
+            font-family: 'Black Ops One', cursive;
+            font-weight: bolder;
+            font-size: 50px;
+            text-decoration: underline;
+        }
+        h2 {
+            text-align: center;
+            color: #fdfafa;
+            font-family: 'Black Ops One', cursive;
+            font-weight: bolder;
+            font-size: 40px;
+            text-decoration: underline;
+            margin-top: 40px; 
+            margin-bottom: 20px;
+        }
+        p {
+            margin: 0px auto;
+            line-height: 1.6;
+            max-width: 800px;
+            padding-bottom: 40px;
+            text-align: center;
+        }
+        
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
+        }
 
-    }
-    h2{
-        text-align: center;
-        color: #fdfafa;
-        font-family: 'Black Ops One', cursive;
-        font-weight: bolder;
-        font-size: 40px;
-        text-decoration: underline;
-    }
-    p {
-        margin: 0px auto;
-        line-height: 1.6;
-        max-width: 800px;
-        padding-bottom: 40px;
-        text-align: center;
-    }
-  
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-bottom: 40px;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background-color: rgba(0, 0, 0, 0.6); 
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #bbbbbb;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #ffffff; /* Highlights border when typing */
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .contact-form button {
+            padding: 15px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #f7f7f7;
+            color: #111;
+            font-family: 'Black Ops One', cursive; /* Matches your h1/h2 */
+            font-size: 20px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .contact-form button:hover {
+            transform: scale(1.02);
+            background-color: #cccccc;
+        }
+    
+        .skill-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px; 
+        }
 
+       
+        .skill-container span {
+            background-color: rgba(0, 0, 0, 0.6); 
+            color: #ffffff;
+            padding: 12px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px; 
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+            transition: transform 0.3s ease;
+        }
 
-.gallery img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-
-.gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
-}
-</style>
+        .skill-container span:hover {
+            transform: scale(1.05);
+            border-color: #ffffff;
+        }
+    </style>
 </head>
 <body>
     <h1>Portfolio</h1>
-    <p>My name is Owen and I am 22 years old. I am a web developer and I am very committed to my work of web development.<br>You will be able to see some of my work in my gallery. Feel free to scroll down to it.</p>
-    
+   <p>My name is Owen and I am currently a software engineering student passionate about learning web development and building interactive applications. I am highly committed to mastering front-end technologies like HTML, CSS, and JavaScript to bring creative ideas to life on the screen. Feel free to scroll down to my gallery to see some of the layouts and concepts I have been building!</p><h2>My Skills</h2>
+   <div class="skill-container">
+        <span>HTML, CSS and Javascript</span>
+    </div>
     <h2>My Gallery</h2>
     <div class="gallery">
         <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQURRpV6r2Q5OnCY3jDzrHEzHMu-Lv4C7IhPKjQ3BSjGfkXJ7Rn1zmrrSYyBZXuOQ_87ci_oxHIuyhDi00" alt="Web developer workspace">
-        <img src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRbluWfIuwNTwObThel90wQ0SGauZ7ypzO7Ed66g-jEpL2qvYEc5Q-G-f3vlc8UfUNtSWN8d53FWFhc7wc" alt="Modern coding environment">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV2dNIA7gPTU7clD-lR_Ou9v3eDb2G1LP5DCmgbrPChA&s=10" alt="Modern coding environment">
         <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRzx5NTKfYnlyemI6Qo3kvfWO7xHh4Pe0BwJceZ1l_pk_r97c2yrhZSFZL_c7ZwM87uFi84fBHQM8slOYA" alt="UI/UX design wireframing">
-        <img src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQOlkfvtbsFfVeuHAgUzk9XWEd3Mm_5DY_0f1eqhRYTXcpWUsTQYbAk2qN6mfKEbVw9LZjNg0yQfBK3o2E" alt="Programmer typing on keyboard">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXoiWt-cg01-oSpKHs8_GoOzp8tvF4AkpE91TOb7-gLg&s=10" alt="Programmer typing on keyboard">
     </div>
+
+    <h2>Contact Me</h2>
+    <form class="contact-form" action="#" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+        <button type="submit">SEND MESSAGE</button>
+    </form>
+
+    <footer>
+        
+        <div >
+            
+            <a href="https://github.com/owen755" target="_blank" class="social-btn">GitHub</a>
+    
+        </div>
+        <p class="copyright">© 2026 Owen Mwangi Njeri. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
